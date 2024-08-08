@@ -31,6 +31,7 @@
 /* Begin PBXFileReference section */
 		DACA46E42C637AF80005B1EB /* createTrustAdminUser.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = createTrustAdminUser.sh; sourceTree = "<group>"; };
 		DACA46E52C637AF80005B1EB /* deleteTrustAdminUser.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = deleteTrustAdminUser.sh; sourceTree = "<group>"; };
+		DACA46E82C64BE5B0005B1EB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DAEB69192C62448A004B2265 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DAEB691C2C624760004B2265 /* testCertificate.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = testCertificate.der; sourceTree = "<group>"; };
 		DAEBCAED2C610F2F004B2265 /* certificateUtility */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = certificateUtility; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +61,7 @@
 		DAEBCAE42C610F2F004B2265 = {
 			isa = PBXGroup;
 			children = (
+				DACA46E82C64BE5B0005B1EB /* README.md */,
 				DAEB691C2C624760004B2265 /* testCertificate.der */,
 				DAEB691A2C62448A004B2265 /* certificateUtility */,
 				DAEBCAEE2C610F2F004B2265 /* Products */,
