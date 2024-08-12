@@ -65,7 +65,6 @@ int main(int argc, const char * argv[])
         {
             NSLog(@"Authorization failure. Error: %d", myStatus);
         }
-
     }
     return 0;
 }

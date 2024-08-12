@@ -17,6 +17,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		DA0562222C6A12820024083A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		DAEBCAEB2C610F2F004B2265 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
@@ -38,6 +47,7 @@
 		DA0562132C69EB190024083A /* SUKeychain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUKeychain.m; sourceTree = "<group>"; };
 		DA0562152C69F3670024083A /* AUAuthorization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUAuthorization.h; sourceTree = "<group>"; };
 		DA0562162C69F3670024083A /* AUAuthorization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AUAuthorization.m; sourceTree = "<group>"; };
+		DA0562242C6A12820024083A /* keychainInfo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = keychainInfo; sourceTree = BUILT_PRODUCTS_DIR; };
 		DACA46E42C637AF80005B1EB /* createTrustAdminUser.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = createTrustAdminUser.sh; sourceTree = "<group>"; };
 		DACA46E52C637AF80005B1EB /* deleteTrustAdminUser.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = deleteTrustAdminUser.sh; sourceTree = "<group>"; };
 		DACA46E82C64BE5B0005B1EB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -46,7 +56,18 @@
 		DAEBCAED2C610F2F004B2265 /* certificateUtility */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = certificateUtility; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		DA0562252C6A12820024083A /* keychainInfo */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = keychainInfo; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		DA0562212C6A12820024083A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DAEBCAEA2C610F2F004B2265 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -95,6 +116,7 @@
 				DACA46E82C64BE5B0005B1EB /* README.md */,
 				DAEB691C2C624760004B2265 /* testCertificate.der */,
 				DAEB691A2C62448A004B2265 /* certificateUtility */,
+				DA0562252C6A12820024083A /* keychainInfo */,
 				DAEBCAEE2C610F2F004B2265 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				DAEBCAED2C610F2F004B2265 /* certificateUtility */,
+				DA0562242C6A12820024083A /* keychainInfo */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,6 +133,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DA0562232C6A12820024083A /* keychainInfo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA0562282C6A12820024083A /* Build configuration list for PBXNativeTarget "keychainInfo" */;
+			buildPhases = (
+				DA0562202C6A12820024083A /* Sources */,
+				DA0562212C6A12820024083A /* Frameworks */,
+				DA0562222C6A12820024083A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DA0562252C6A12820024083A /* keychainInfo */,
+			);
+			name = keychainInfo;
+			packageProductDependencies = (
+			);
+			productName = keychainInfo;
+			productReference = DA0562242C6A12820024083A /* keychainInfo */;
+			productType = "com.apple.product-type.tool";
+		};
 		DAEBCAEC2C610F2F004B2265 /* certificateUtility */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DAEBCAF42C610F2F004B2265 /* Build configuration list for PBXNativeTarget "certificateUtility" */;
@@ -138,6 +183,9 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					DA0562232C6A12820024083A = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					DAEBCAEC2C610F2F004B2265 = {
 						CreatedOnToolsVersion = 16.0;
 					};
@@ -157,11 +205,19 @@
 			projectRoot = "";
 			targets = (
 				DAEBCAEC2C610F2F004B2265 /* certificateUtility */,
+				DA0562232C6A12820024083A /* keychainInfo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DA0562202C6A12820024083A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DAEBCAE92C610F2F004B2265 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -176,6 +232,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		DA0562292C6A12820024083A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DA05622A2C6A12820024083A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		DAEBCAF22C610F2F004B2265 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -316,6 +388,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DA0562282C6A12820024083A /* Build configuration list for PBXNativeTarget "keychainInfo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA0562292C6A12820024083A /* Debug */,
+				DA05622A2C6A12820024083A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DAEBCAE82C610F2F004B2265 /* Build configuration list for PBXProject "certificateUtility" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
