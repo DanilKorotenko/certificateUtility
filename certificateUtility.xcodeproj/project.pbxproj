@@ -29,6 +29,10 @@
 		DA0562172C69F3670024083A /* AUAuthorization.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562162C69F3670024083A /* AUAuthorization.m */; };
 		DA05622B2C6A14940024083A /* SUCeritifcate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562102C69DF000024083A /* SUCeritifcate.m */; };
 		DA0562342C6A17550024083A /* SUKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562132C69EB190024083A /* SUKeychain.m */; };
+		DA05623A2C6A2B230024083A /* NSData+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562372C6A2B230024083A /* NSData+HexString.m */; };
+		DA05623B2C6A2B230024083A /* NSData+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562392C6A2B230024083A /* NSData+SHA1.m */; };
+		DA05623C2C6A2B230024083A /* NSData+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562372C6A2B230024083A /* NSData+HexString.m */; };
+		DA05623D2C6A2B230024083A /* NSData+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562392C6A2B230024083A /* NSData+SHA1.m */; };
 		DACA46E62C637DDF0005B1EB /* createTrustAdminUser.sh in CopyFiles */ = {isa = PBXBuildFile; fileRef = DACA46E42C637AF80005B1EB /* createTrustAdminUser.sh */; };
 		DACA46E72C637DDF0005B1EB /* deleteTrustAdminUser.sh in CopyFiles */ = {isa = PBXBuildFile; fileRef = DACA46E52C637AF80005B1EB /* deleteTrustAdminUser.sh */; };
 		DAEB691B2C62448A004B2265 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEB69192C62448A004B2265 /* main.m */; };
@@ -84,6 +88,10 @@
 		DA0562152C69F3670024083A /* AUAuthorization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUAuthorization.h; sourceTree = "<group>"; };
 		DA0562162C69F3670024083A /* AUAuthorization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AUAuthorization.m; sourceTree = "<group>"; };
 		DA0562242C6A12820024083A /* keychainInfo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = keychainInfo; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA0562362C6A2B230024083A /* NSData+HexString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+HexString.h"; sourceTree = "<group>"; };
+		DA0562372C6A2B230024083A /* NSData+HexString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+HexString.m"; sourceTree = "<group>"; };
+		DA0562382C6A2B230024083A /* NSData+SHA1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+SHA1.h"; sourceTree = "<group>"; };
+		DA0562392C6A2B230024083A /* NSData+SHA1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+SHA1.m"; sourceTree = "<group>"; };
 		DACA46E42C637AF80005B1EB /* createTrustAdminUser.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = createTrustAdminUser.sh; sourceTree = "<group>"; };
 		DACA46E52C637AF80005B1EB /* deleteTrustAdminUser.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = deleteTrustAdminUser.sh; sourceTree = "<group>"; };
 		DACA46E82C64BE5B0005B1EB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -117,6 +125,10 @@
 		DA05620D2C69DE490024083A /* SecurityUtilities */ = {
 			isa = PBXGroup;
 			children = (
+				DA0562362C6A2B230024083A /* NSData+HexString.h */,
+				DA0562372C6A2B230024083A /* NSData+HexString.m */,
+				DA0562382C6A2B230024083A /* NSData+SHA1.h */,
+				DA0562392C6A2B230024083A /* NSData+SHA1.m */,
 				DA05620F2C69DF000024083A /* SUCeritifcate.h */,
 				DA0562102C69DF000024083A /* SUCeritifcate.m */,
 				DA0562122C69EB190024083A /* SUKeychain.h */,
@@ -256,6 +268,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA0562342C6A17550024083A /* SUKeychain.m in Sources */,
+				DA05623C2C6A2B230024083A /* NSData+HexString.m in Sources */,
+				DA05623D2C6A2B230024083A /* NSData+SHA1.m in Sources */,
 				DA05622B2C6A14940024083A /* SUCeritifcate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +279,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAEB691B2C62448A004B2265 /* main.m in Sources */,
+				DA05623A2C6A2B230024083A /* NSData+HexString.m in Sources */,
+				DA05623B2C6A2B230024083A /* NSData+SHA1.m in Sources */,
 				DA0562142C69EB190024083A /* SUKeychain.m in Sources */,
 				DA0562112C69DF000024083A /* SUCeritifcate.m in Sources */,
 				DA0562172C69F3670024083A /* AUAuthorization.m in Sources */,

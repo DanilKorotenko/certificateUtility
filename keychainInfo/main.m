@@ -37,8 +37,9 @@ int main(int argc, const char * argv[])
 //            NSLog(@"Certificate already in keychain");
 //        }
 
-        NSLog(@"isTrusted: %@", certificate.isTrusted ? @"YES" : @"NO");
+//        NSLog(@"isTrusted: %@", certificate.isTrusted ? @"YES" : @"NO");
 
+        NSLog(@"sha1: %@", certificate.sha1);
     }
     return 0;
 }

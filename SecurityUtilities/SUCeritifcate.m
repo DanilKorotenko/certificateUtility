@@ -6,6 +6,8 @@
 //
 
 #import "SUCeritifcate.h"
+#import "NSData+SHA1.h"
+#import "NSData+HexString.h"
 
 @interface SUCeritifcate ()
 
@@ -18,6 +20,7 @@
 
 @synthesize name;
 @synthesize adminTrustSettings;
+@synthesize sha1;
 
 - (instancetype)initWithCertificate:(SecCertificateRef)aCertificate
 {
@@ -28,7 +31,6 @@
         {
             return nil;
         }
-
         self.certificateRef = (SecCertificateRef)CFRetain(aCertificate);
     }
     return self;
@@ -117,6 +119,17 @@
 - (BOOL)isTrusted
 {
     return self.adminTrustSettings != nil;
+}
+
+- (NSString *)sha1
+{
+    if (sha1 == nil)
+    {
+        NSData *certData = CFBridgingRelease(SecCertificateCopyData(self.certificateRef));
+        NSData *sha1Data = certData.sha1;
+        sha1 = sha1Data.hexString;
+    }
+    return sha1;
 }
 
 #pragma mark -
