@@ -16,8 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (readonly) NSString *name;
 @property (readonly) SecCertificateRef certificateRef;
+@property (readonly) BOOL isTrusted;
 
-- (OSStatus)setTrustSettings;
+- (OSStatus)installAdminTrustSettings;
 
 @end
 

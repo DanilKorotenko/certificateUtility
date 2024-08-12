@@ -10,12 +10,14 @@
 @interface SUCeritifcate ()
 
 @property (readwrite) SecCertificateRef certificateRef;
+@property (readonly) NSArray *adminTrustSettings;
 
 @end
 
 @implementation SUCeritifcate
 
 @synthesize name;
+@synthesize adminTrustSettings;
 
 - (instancetype)initWithCertificate:(SecCertificateRef)aCertificate
 {
@@ -99,9 +101,27 @@
     return name;
 }
 
+- (NSArray *)adminTrustSettings
+{
+    if (adminTrustSettings == nil)
+    {
+        CFArrayRef trustSettings = NULL;
+        if (SecTrustSettingsCopyTrustSettings(self.certificateRef, kSecTrustSettingsDomainAdmin, &trustSettings) == noErr && trustSettings)
+        {
+            adminTrustSettings = CFBridgingRelease(trustSettings);
+        }
+    }
+    return adminTrustSettings;
+}
+
+- (BOOL)isTrusted
+{
+    return self.adminTrustSettings != nil;
+}
+
 #pragma mark -
 
-- (OSStatus)setTrustSettings
+- (OSStatus)installAdminTrustSettings
 {
     return SecTrustSettingsSetTrustSettings(self.certificateRef, kSecTrustSettingsDomainAdmin, NULL);
 }

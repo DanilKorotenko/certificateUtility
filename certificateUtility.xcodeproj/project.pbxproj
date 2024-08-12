@@ -3,18 +3,54 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
+
+/* Begin PBXAggregateTarget section */
+		DA05622C2C6A14A90024083A /* BuildAll */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = DA05622D2C6A14A90024083A /* Build configuration list for PBXAggregateTarget "BuildAll" */;
+			buildPhases = (
+			);
+			dependencies = (
+				DA0562312C6A14B10024083A /* PBXTargetDependency */,
+				DA0562332C6A14B10024083A /* PBXTargetDependency */,
+			);
+			name = BuildAll;
+			packageProductDependencies = (
+			);
+			productName = BuildAll;
+		};
+/* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
 		DA0562112C69DF000024083A /* SUCeritifcate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562102C69DF000024083A /* SUCeritifcate.m */; };
 		DA0562142C69EB190024083A /* SUKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562132C69EB190024083A /* SUKeychain.m */; };
 		DA0562172C69F3670024083A /* AUAuthorization.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562162C69F3670024083A /* AUAuthorization.m */; };
+		DA05622B2C6A14940024083A /* SUCeritifcate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562102C69DF000024083A /* SUCeritifcate.m */; };
+		DA0562342C6A17550024083A /* SUKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562132C69EB190024083A /* SUKeychain.m */; };
 		DACA46E62C637DDF0005B1EB /* createTrustAdminUser.sh in CopyFiles */ = {isa = PBXBuildFile; fileRef = DACA46E42C637AF80005B1EB /* createTrustAdminUser.sh */; };
 		DACA46E72C637DDF0005B1EB /* deleteTrustAdminUser.sh in CopyFiles */ = {isa = PBXBuildFile; fileRef = DACA46E52C637AF80005B1EB /* deleteTrustAdminUser.sh */; };
 		DAEB691B2C62448A004B2265 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEB69192C62448A004B2265 /* main.m */; };
 		DAEB691D2C62478B004B2265 /* testCertificate.der in CopyFiles */ = {isa = PBXBuildFile; fileRef = DAEB691C2C624760004B2265 /* testCertificate.der */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DA0562302C6A14B10024083A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAEBCAE52C610F2F004B2265 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DAEBCAEC2C610F2F004B2265;
+			remoteInfo = certificateUtility;
+		};
+		DA0562322C6A14B10024083A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAEBCAE52C610F2F004B2265 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA0562232C6A12820024083A;
+			remoteInfo = keychainInfo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		DA0562222C6A12820024083A /* CopyFiles */ = {
@@ -186,6 +222,9 @@
 					DA0562232C6A12820024083A = {
 						CreatedOnToolsVersion = 16.0;
 					};
+					DA05622C2C6A14A90024083A = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					DAEBCAEC2C610F2F004B2265 = {
 						CreatedOnToolsVersion = 16.0;
 					};
@@ -206,6 +245,7 @@
 			targets = (
 				DAEBCAEC2C610F2F004B2265 /* certificateUtility */,
 				DA0562232C6A12820024083A /* keychainInfo */,
+				DA05622C2C6A14A90024083A /* BuildAll */,
 			);
 		};
 /* End PBXProject section */
@@ -215,6 +255,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA0562342C6A17550024083A /* SUKeychain.m in Sources */,
+				DA05622B2C6A14940024083A /* SUCeritifcate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +273,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DA0562312C6A14B10024083A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DAEBCAEC2C610F2F004B2265 /* certificateUtility */;
+			targetProxy = DA0562302C6A14B10024083A /* PBXContainerItemProxy */;
+		};
+		DA0562332C6A14B10024083A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA0562232C6A12820024083A /* keychainInfo */;
+			targetProxy = DA0562322C6A14B10024083A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		DA0562292C6A12820024083A /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -241,6 +296,22 @@
 			name = Debug;
 		};
 		DA05622A2C6A12820024083A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DA05622E2C6A14A90024083A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DA05622F2C6A14A90024083A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -393,6 +464,15 @@
 			buildConfigurations = (
 				DA0562292C6A12820024083A /* Debug */,
 				DA05622A2C6A12820024083A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA05622D2C6A14A90024083A /* Build configuration list for PBXAggregateTarget "BuildAll" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA05622E2C6A14A90024083A /* Debug */,
+				DA05622F2C6A14A90024083A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
