@@ -7,41 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "../SecurityUtilities/SUCeritifcate.h"
-
-SUCeritifcate *findCertificate(SecKeychainRef aKeychain, NSString *aName)
-{
-    SecKeychainSearchRef searchRef = NULL;
-    OSStatus status = SecKeychainSearchCreateFromAttributes(aKeychain, kSecCertificateItemClass, NULL, &searchRef);
-    if (status || !searchRef)
-    {
-        return nil;
-    }
-
-    SUCeritifcate *result = nil;
-
-    SecKeychainItemRef candidate = NULL;
-    while (SecKeychainSearchCopyNext(searchRef, &candidate) == noErr)
-    {
-        SUCeritifcate *cert = [[SUCeritifcate alloc] initWithCertificate:(SecCertificateRef)candidate];
-
-        if ([aName isEqualToString:cert.name])
-        {
-            result = cert;
-            break;
-        }
-    }
-
-    CFRelease(searchRef);
-
-    return result;
-}
-
-BOOL certificateInKeychain(SecKeychainRef aKeychain, SecCertificateRef aCertificate)
-{
-    NSString *certName = certificateGetName(aCertificate);
-    SecCertificateRef cert = findCertificate(aKeychain, certName);
-    return CFEqual(cert, aCertificate);
-}
+#import "../SecurityUtilities/SUKeychain.h"
 
 AuthorizationEnvironment createEnvironment(void)
 {
@@ -76,7 +42,7 @@ int main(int argc, const char * argv[])
         }
 
         NSString *path = [NSString stringWithUTF8String:argv[1]];
-        SecCertificateRef certificate = certificateWithPath(path);
+        SUCeritifcate *certificate = [[SUCeritifcate alloc] initWithPath:path];
 
         if (!certificate)
         {
@@ -114,8 +80,7 @@ int main(int argc, const char * argv[])
             NSLog(@"AuthorizationCopyRights failure. Error: %d", err);
         }
 
-        SecKeychainRef keychain = NULL;
-        SecKeychainCopyDomainDefault(kSecPreferencesDomainSystem, &keychain);
+        SUKeychain *keychain = [[SUKeychain alloc] initSystemKeychain];
 
         if (!keychain)
         {
@@ -123,9 +88,9 @@ int main(int argc, const char * argv[])
             return 0;
         }
 
-        if (!certificateInKeychain(keychain, certificate))
+        if (![keychain containsCertificate:certificate])
         {
-            err = SecCertificateAddToKeychain(certificate, keychain);
+            err = [keychain addCertificate:certificate.certificateRef];
             if (err != noErr)
             {
                 NSLog(@"SecCertificateAddToKeychain failure. Error: %d", err);
@@ -136,7 +101,7 @@ int main(int argc, const char * argv[])
             NSLog(@"Certificate already in keychain");
         }
 
-        err = SecTrustSettingsSetTrustSettings(certificate, kSecTrustSettingsDomainAdmin, NULL);
+        err = [certificate setTrustSettings];
         if (err != noErr)
         {
             NSLog(@"SecTrustSettingsSetTrustSettings failure. Error: %d", err);

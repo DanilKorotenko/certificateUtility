@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DA0562112C69DF000024083A /* SUCeritifcate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562102C69DF000024083A /* SUCeritifcate.m */; };
+		DA0562142C69EB190024083A /* SUKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562132C69EB190024083A /* SUKeychain.m */; };
 		DACA46E62C637DDF0005B1EB /* createTrustAdminUser.sh in CopyFiles */ = {isa = PBXBuildFile; fileRef = DACA46E42C637AF80005B1EB /* createTrustAdminUser.sh */; };
 		DACA46E72C637DDF0005B1EB /* deleteTrustAdminUser.sh in CopyFiles */ = {isa = PBXBuildFile; fileRef = DACA46E52C637AF80005B1EB /* deleteTrustAdminUser.sh */; };
 		DAEB691B2C62448A004B2265 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEB69192C62448A004B2265 /* main.m */; };
@@ -32,6 +33,8 @@
 /* Begin PBXFileReference section */
 		DA05620F2C69DF000024083A /* SUCeritifcate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUCeritifcate.h; sourceTree = "<group>"; };
 		DA0562102C69DF000024083A /* SUCeritifcate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUCeritifcate.m; sourceTree = "<group>"; };
+		DA0562122C69EB190024083A /* SUKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUKeychain.h; sourceTree = "<group>"; };
+		DA0562132C69EB190024083A /* SUKeychain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUKeychain.m; sourceTree = "<group>"; };
 		DACA46E42C637AF80005B1EB /* createTrustAdminUser.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = createTrustAdminUser.sh; sourceTree = "<group>"; };
 		DACA46E52C637AF80005B1EB /* deleteTrustAdminUser.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = deleteTrustAdminUser.sh; sourceTree = "<group>"; };
 		DACA46E82C64BE5B0005B1EB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -56,6 +59,8 @@
 			children = (
 				DA05620F2C69DF000024083A /* SUCeritifcate.h */,
 				DA0562102C69DF000024083A /* SUCeritifcate.m */,
+				DA0562122C69EB190024083A /* SUKeychain.h */,
+				DA0562132C69EB190024083A /* SUKeychain.m */,
 			);
 			path = SecurityUtilities;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAEB691B2C62448A004B2265 /* main.m in Sources */,
+				DA0562142C69EB190024083A /* SUKeychain.m in Sources */,
 				DA0562112C69DF000024083A /* SUCeritifcate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

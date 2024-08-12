@@ -9,7 +9,7 @@
 
 @interface SUCeritifcate ()
 
-@property (readwrite) SecCertificateRef certificate;
+@property (readwrite) SecCertificateRef certificateRef;
 
 @end
 
@@ -27,7 +27,7 @@
             return nil;
         }
 
-        self.certificate = (SecCertificateRef)CFRetain(aCertificate);
+        self.certificateRef = (SecCertificateRef)CFRetain(aCertificate);
     }
     return self;
 }
@@ -49,17 +49,39 @@
             return nil;
         }
 
-        self.certificate = result;
+        self.certificateRef = result;
     }
     return self;
 }
 
 - (void)dealloc
 {
-    if (self.certificate)
+    if (self.certificateRef)
     {
-        CFRelease(self.certificate);
+        CFRelease(self.certificateRef);
     }
+}
+
+- (BOOL)isEqual:(id)other
+{
+    if (other == self)
+    {
+        return YES;
+    }
+    else if (![super isEqual:other])
+    {
+        return NO;
+    }
+    else
+    {
+        SUCeritifcate *otherCertificate = (SUCeritifcate *)other;
+        return CFEqual(self.certificateRef, otherCertificate.certificateRef);
+    }
+}
+
+- (NSUInteger)hash
+{
+    return [super hash];
 }
 
 #pragma mark -
@@ -69,12 +91,19 @@
     if (name == nil)
     {
         CFStringRef nameRef = NULL;
-        if ((SecCertificateCopyCommonName(self.certificate, &nameRef) == noErr) && nameRef != NULL)
+        if ((SecCertificateCopyCommonName(self.certificateRef, &nameRef) == noErr) && nameRef != NULL)
         {
             name = CFBridgingRelease(nameRef);
         }
     }
     return name;
+}
+
+#pragma mark -
+
+- (OSStatus)setTrustSettings
+{
+    return SecTrustSettingsSetTrustSettings(self.certificateRef, kSecTrustSettingsDomainAdmin, NULL);
 }
 
 @end

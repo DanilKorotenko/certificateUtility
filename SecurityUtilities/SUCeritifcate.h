@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithPath:(NSString *)aPath;
 
 @property (readonly) NSString *name;
+@property (readonly) SecCertificateRef certificateRef;
+
+- (OSStatus)setTrustSettings;
 
 @end
 
