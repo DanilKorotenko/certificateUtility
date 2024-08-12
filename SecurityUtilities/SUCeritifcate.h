@@ -11,6 +11,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SUCeritifcate : NSObject
 
+- (instancetype)initWithCertificate:(SecCertificateRef)aCertificate;
+- (instancetype)initWithPath:(NSString *)aPath;
+
+@property (readonly) NSString *name;
+
 @end
 
 NS_ASSUME_NONNULL_END

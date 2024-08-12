@@ -6,70 +6,34 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "../SecurityUtilities/SUCeritifcate.h"
 
-SecCertificateRef certificateWithPath(NSString *aPath)
+SUCeritifcate *findCertificate(SecKeychainRef aKeychain, NSString *aName)
 {
-    NSURL *url = [NSURL fileURLWithPath:aPath isDirectory:NO];
-    NSData *rootCertData = [NSData dataWithContentsOfURL:url];
-
-    CFDataRef rootCerDataRef = (__bridge CFDataRef)(rootCertData);
-
-    SecCertificateRef result = SecCertificateCreateWithData(NULL, rootCerDataRef);
-
-    if (!result)
-    {
-        NSLog(@"Unable to create certificate from path: %@", aPath);
-    }
-    return result;
-}
-
-NSString *certificateGetName(SecCertificateRef aCertificate)
-{
-    NSString *result = nil;
-    CFStringRef nameRef = NULL;
-    if ((SecCertificateCopyCommonName(aCertificate, &nameRef) == noErr) && nameRef != NULL)
-    {
-        result = CFBridgingRelease(nameRef);
-    }
-    return result;
-}
-
-SecCertificateRef findCertificate(SecKeychainRef aKeychain, NSString *aName)
-{
-    OSStatus status = noErr;
     SecKeychainSearchRef searchRef = NULL;
-
-    SecKeychainItemRef candidate = NULL;
-
-    status = SecKeychainSearchCreateFromAttributes(aKeychain, kSecCertificateItemClass, NULL, &searchRef);
+    OSStatus status = SecKeychainSearchCreateFromAttributes(aKeychain, kSecCertificateItemClass, NULL, &searchRef);
     if (status || !searchRef)
     {
-        return (SecCertificateRef)candidate;
+        return nil;
     }
 
+    SUCeritifcate *result = nil;
+
+    SecKeychainItemRef candidate = NULL;
     while (SecKeychainSearchCopyNext(searchRef, &candidate) == noErr)
     {
-        SecCertificateRef cert = (SecCertificateRef)candidate;
+        SUCeritifcate *cert = [[SUCeritifcate alloc] initWithCertificate:(SecCertificateRef)candidate];
 
-        NSString *certName = certificateGetName(cert);
-        if (!certName)
+        if ([aName isEqualToString:cert.name])
         {
-            if (candidate)
-            {
-                CFRelease(candidate);
-            }
-            continue; // no name, so no match is possible
-        }
-
-        if ([certName isEqualToString:aName])
-        {
+            result = cert;
             break;
         }
     }
 
     CFRelease(searchRef);
 
-    return (SecCertificateRef)candidate;
+    return result;
 }
 
 BOOL certificateInKeychain(SecKeychainRef aKeychain, SecCertificateRef aCertificate)
