@@ -57,8 +57,6 @@
     SecKeychainItemRef candidate = NULL;
     while (SecKeychainSearchCopyNext(searchRef, &candidate) == noErr)
     {
-        SUCeritifcate *cert = [[SUCeritifcate alloc] initWithCertificate:(SecCertificateRef)candidate];
-
         if (CFEqual(aCertificate.certificateRef, (SecCertificateRef)candidate))
         {
             result = YES;

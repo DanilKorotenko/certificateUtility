@@ -26,16 +26,19 @@
 /* Begin PBXBuildFile section */
 		DA0562112C69DF000024083A /* SUCeritifcate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562102C69DF000024083A /* SUCeritifcate.m */; };
 		DA0562142C69EB190024083A /* SUKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562132C69EB190024083A /* SUKeychain.m */; };
-		DA0562172C69F3670024083A /* AUAuthorization.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562162C69F3670024083A /* AUAuthorization.m */; };
+		DA0562172C69F3670024083A /* AUAuthorization.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA0562162C69F3670024083A /* AUAuthorization.mm */; };
 		DA05622B2C6A14940024083A /* SUCeritifcate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562102C69DF000024083A /* SUCeritifcate.m */; };
 		DA0562342C6A17550024083A /* SUKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562132C69EB190024083A /* SUKeychain.m */; };
 		DA05623A2C6A2B230024083A /* NSData+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562372C6A2B230024083A /* NSData+HexString.m */; };
 		DA05623B2C6A2B230024083A /* NSData+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562392C6A2B230024083A /* NSData+SHA1.m */; };
 		DA05623C2C6A2B230024083A /* NSData+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562372C6A2B230024083A /* NSData+HexString.m */; };
 		DA05623D2C6A2B230024083A /* NSData+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562392C6A2B230024083A /* NSData+SHA1.m */; };
+		DA0562512C6B74A20024083A /* SecurityUtilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA0562502C6B74A20024083A /* SecurityUtilities.mm */; };
+		DA0562522C6B764D0024083A /* IUIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562492C6B70670024083A /* IUIdentity.m */; };
+		DA0562532C6B76560024083A /* IUIdentityQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DA05624D2C6B70670024083A /* IUIdentityQuery.m */; };
 		DACA46E62C637DDF0005B1EB /* createTrustAdminUser.sh in CopyFiles */ = {isa = PBXBuildFile; fileRef = DACA46E42C637AF80005B1EB /* createTrustAdminUser.sh */; };
 		DACA46E72C637DDF0005B1EB /* deleteTrustAdminUser.sh in CopyFiles */ = {isa = PBXBuildFile; fileRef = DACA46E52C637AF80005B1EB /* deleteTrustAdminUser.sh */; };
-		DAEB691B2C62448A004B2265 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEB69192C62448A004B2265 /* main.m */; };
+		DAEB691B2C62448A004B2265 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = DAEB69192C62448A004B2265 /* main.mm */; };
 		DAEB691D2C62478B004B2265 /* testCertificate.der in CopyFiles */ = {isa = PBXBuildFile; fileRef = DAEB691C2C624760004B2265 /* testCertificate.der */; };
 /* End PBXBuildFile section */
 
@@ -86,16 +89,24 @@
 		DA0562122C69EB190024083A /* SUKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUKeychain.h; sourceTree = "<group>"; };
 		DA0562132C69EB190024083A /* SUKeychain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUKeychain.m; sourceTree = "<group>"; };
 		DA0562152C69F3670024083A /* AUAuthorization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUAuthorization.h; sourceTree = "<group>"; };
-		DA0562162C69F3670024083A /* AUAuthorization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AUAuthorization.m; sourceTree = "<group>"; };
+		DA0562162C69F3670024083A /* AUAuthorization.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AUAuthorization.mm; sourceTree = "<group>"; };
 		DA0562242C6A12820024083A /* keychainInfo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = keychainInfo; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA0562362C6A2B230024083A /* NSData+HexString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+HexString.h"; sourceTree = "<group>"; };
 		DA0562372C6A2B230024083A /* NSData+HexString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+HexString.m"; sourceTree = "<group>"; };
 		DA0562382C6A2B230024083A /* NSData+SHA1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+SHA1.h"; sourceTree = "<group>"; };
 		DA0562392C6A2B230024083A /* NSData+SHA1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+SHA1.m"; sourceTree = "<group>"; };
+		DA0562482C6B70670024083A /* IUIdentity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IUIdentity.h; sourceTree = "<group>"; };
+		DA0562492C6B70670024083A /* IUIdentity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IUIdentity.m; sourceTree = "<group>"; };
+		DA05624A2C6B70670024083A /* IUIdentityAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IUIdentityAdapter.h; sourceTree = "<group>"; };
+		DA05624B2C6B70670024083A /* IUIdentityAdapter.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = IUIdentityAdapter.mm; sourceTree = "<group>"; };
+		DA05624C2C6B70670024083A /* IUIdentityQuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IUIdentityQuery.h; sourceTree = "<group>"; };
+		DA05624D2C6B70670024083A /* IUIdentityQuery.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IUIdentityQuery.m; sourceTree = "<group>"; };
+		DA05624F2C6B74A20024083A /* SecurityUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecurityUtilities.h; sourceTree = "<group>"; };
+		DA0562502C6B74A20024083A /* SecurityUtilities.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SecurityUtilities.mm; sourceTree = "<group>"; };
 		DACA46E42C637AF80005B1EB /* createTrustAdminUser.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = createTrustAdminUser.sh; sourceTree = "<group>"; };
 		DACA46E52C637AF80005B1EB /* deleteTrustAdminUser.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = deleteTrustAdminUser.sh; sourceTree = "<group>"; };
 		DACA46E82C64BE5B0005B1EB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		DAEB69192C62448A004B2265 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DAEB69192C62448A004B2265 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		DAEB691C2C624760004B2265 /* testCertificate.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = testCertificate.der; sourceTree = "<group>"; };
 		DAEBCAED2C610F2F004B2265 /* certificateUtility */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = certificateUtility; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -129,6 +140,8 @@
 				DA0562372C6A2B230024083A /* NSData+HexString.m */,
 				DA0562382C6A2B230024083A /* NSData+SHA1.h */,
 				DA0562392C6A2B230024083A /* NSData+SHA1.m */,
+				DA05624F2C6B74A20024083A /* SecurityUtilities.h */,
+				DA0562502C6B74A20024083A /* SecurityUtilities.mm */,
 				DA05620F2C69DF000024083A /* SUCeritifcate.h */,
 				DA0562102C69DF000024083A /* SUCeritifcate.m */,
 				DA0562122C69EB190024083A /* SUKeychain.h */,
@@ -141,9 +154,22 @@
 			isa = PBXGroup;
 			children = (
 				DA0562152C69F3670024083A /* AUAuthorization.h */,
-				DA0562162C69F3670024083A /* AUAuthorization.m */,
+				DA0562162C69F3670024083A /* AUAuthorization.mm */,
 			);
 			path = AuthorizationUtilities;
+			sourceTree = "<group>";
+		};
+		DA05624E2C6B70670024083A /* IdentityUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				DA0562482C6B70670024083A /* IUIdentity.h */,
+				DA0562492C6B70670024083A /* IUIdentity.m */,
+				DA05624A2C6B70670024083A /* IUIdentityAdapter.h */,
+				DA05624B2C6B70670024083A /* IUIdentityAdapter.mm */,
+				DA05624C2C6B70670024083A /* IUIdentityQuery.h */,
+				DA05624D2C6B70670024083A /* IUIdentityQuery.m */,
+			);
+			path = IdentityUtilities;
 			sourceTree = "<group>";
 		};
 		DAEB691A2C62448A004B2265 /* certificateUtility */ = {
@@ -151,7 +177,7 @@
 			children = (
 				DACA46E42C637AF80005B1EB /* createTrustAdminUser.sh */,
 				DACA46E52C637AF80005B1EB /* deleteTrustAdminUser.sh */,
-				DAEB69192C62448A004B2265 /* main.m */,
+				DAEB69192C62448A004B2265 /* main.mm */,
 			);
 			path = certificateUtility;
 			sourceTree = "<group>";
@@ -159,13 +185,14 @@
 		DAEBCAE42C610F2F004B2265 = {
 			isa = PBXGroup;
 			children = (
+				DA05624E2C6B70670024083A /* IdentityUtilities */,
 				DA05620E2C69DE730024083A /* AuthorizationUtilities */,
-				DA05620D2C69DE490024083A /* SecurityUtilities */,
-				DACA46E82C64BE5B0005B1EB /* README.md */,
-				DAEB691C2C624760004B2265 /* testCertificate.der */,
 				DAEB691A2C62448A004B2265 /* certificateUtility */,
 				DA0562252C6A12820024083A /* keychainInfo */,
 				DAEBCAEE2C610F2F004B2265 /* Products */,
+				DACA46E82C64BE5B0005B1EB /* README.md */,
+				DA05620D2C69DE490024083A /* SecurityUtilities */,
+				DAEB691C2C624760004B2265 /* testCertificate.der */,
 			);
 			sourceTree = "<group>";
 		};
@@ -278,12 +305,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAEB691B2C62448A004B2265 /* main.m in Sources */,
+				DAEB691B2C62448A004B2265 /* main.mm in Sources */,
+				DA0562512C6B74A20024083A /* SecurityUtilities.mm in Sources */,
 				DA05623A2C6A2B230024083A /* NSData+HexString.m in Sources */,
 				DA05623B2C6A2B230024083A /* NSData+SHA1.m in Sources */,
 				DA0562142C69EB190024083A /* SUKeychain.m in Sources */,
 				DA0562112C69DF000024083A /* SUCeritifcate.m in Sources */,
-				DA0562172C69F3670024083A /* AUAuthorization.m in Sources */,
+				DA0562172C69F3670024083A /* AUAuthorization.mm in Sources */,
+				DA0562532C6B76560024083A /* IUIdentityQuery.m in Sources */,
+				DA0562522C6B764D0024083A /* IUIdentity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
