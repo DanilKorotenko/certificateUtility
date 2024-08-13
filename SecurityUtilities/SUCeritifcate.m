@@ -72,20 +72,11 @@
     {
         return YES;
     }
-    else if (![super isEqual:other])
-    {
-        return NO;
-    }
     else
     {
         SUCeritifcate *otherCertificate = (SUCeritifcate *)other;
         return CFEqual(self.certificateRef, otherCertificate.certificateRef);
     }
-}
-
-- (NSUInteger)hash
-{
-    return [super hash];
 }
 
 #pragma mark -

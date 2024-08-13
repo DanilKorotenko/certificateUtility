@@ -43,25 +43,25 @@
 
 #pragma mark -
 
-- (SUCeritifcate *)findCertificateWithName:(NSString *)aName
+- (BOOL)containsCertificate:(SUCeritifcate *)aCertificate
 {
     SecKeychainSearchRef searchRef = NULL;
     OSStatus status = SecKeychainSearchCreateFromAttributes(self.keychain, kSecCertificateItemClass, NULL, &searchRef);
     if (status || !searchRef)
     {
-        return nil;
+        return NO;
     }
 
-    SUCeritifcate *result = nil;
+    BOOL result = NO;
 
     SecKeychainItemRef candidate = NULL;
     while (SecKeychainSearchCopyNext(searchRef, &candidate) == noErr)
     {
         SUCeritifcate *cert = [[SUCeritifcate alloc] initWithCertificate:(SecCertificateRef)candidate];
 
-        if ([aName isEqualToString:cert.name])
+        if (CFEqual(aCertificate.certificateRef, (SecCertificateRef)candidate))
         {
-            result = cert;
+            result = YES;
             break;
         }
     }
@@ -69,13 +69,6 @@
     CFRelease(searchRef);
 
     return result;
-}
-
-- (BOOL)containsCertificate:(SUCeritifcate *)aCertificate
-{
-    NSString *certName = aCertificate.name;
-    SUCeritifcate *cert = [self findCertificateWithName:certName];
-    return [aCertificate isEqual:cert];
 }
 
 - (OSStatus)addCertificate:(SecCertificateRef)aCertificate

@@ -15,7 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initSystemKeychain;
 
-- (SUCeritifcate *)findCertificateWithName:(NSString *)aName;
 - (BOOL)containsCertificate:(SUCeritifcate *)aCertificate;
 
 - (OSStatus)addCertificate:(SecCertificateRef)aCertificate;
