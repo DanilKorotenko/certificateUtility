@@ -48,8 +48,8 @@ OSStatus executeTrustSettingsAdminAuthorizedBlock(const char *aLogin, const char
     AuthorizationEnvironment env = createEnvironment(aLogin, aPassword);
 
     AuthorizationRights *myAuthorizedRights = NULL;
-    myStatus = AuthorizationCopyRights (myAuthorizationRef, &myRights,
-            &env, myFlags, &myAuthorizedRights);
+    myStatus = AuthorizationCopyRights(myAuthorizationRef, &myRights,
+        &env, myFlags, &myAuthorizedRights);
 
 
     aBlock();

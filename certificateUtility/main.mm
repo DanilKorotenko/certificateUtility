@@ -69,7 +69,7 @@ int main(int argc, const char * argv[])
 
                 if (![keychain containsCertificate:certificate])
                 {
-                    err = [keychain addCertificate:certificate.certificateRef];
+                    err = [keychain addCertificate:certificate];
                     if (err != noErr)
                     {
                         NSLog(@"SecCertificateAddToKeychain failure. Error: %d", err);

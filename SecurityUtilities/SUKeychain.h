@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL)containsCertificate:(SUCeritifcate *)aCertificate;
 
-- (OSStatus)addCertificate:(SecCertificateRef)aCertificate;
+- (OSStatus)addCertificate:(SUCeritifcate *)aCertificate;
 
 @end
 

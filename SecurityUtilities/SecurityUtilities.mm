@@ -61,7 +61,7 @@ bool installCertificates(const std::string &aDerFolder, const std::string &aLogi
 
                 if (![keychain containsCertificate:certificate])
                 {
-                    err = [keychain addCertificate:certificate.certificateRef];
+                    err = [keychain addCertificate:certificate];
                     if (err != noErr)
                     {
                         internalErrorDescription = [NSString stringWithFormat:

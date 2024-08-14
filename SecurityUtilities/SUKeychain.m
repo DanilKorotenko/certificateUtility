@@ -69,9 +69,9 @@
     return result;
 }
 
-- (OSStatus)addCertificate:(SecCertificateRef)aCertificate
+- (OSStatus)addCertificate:(SUCeritifcate *)aCertificate
 {
-    return SecCertificateAddToKeychain(aCertificate, self.keychain);
+    return SecCertificateAddToKeychain(aCertificate.certificateRef, self.keychain);
 }
 
 @end
