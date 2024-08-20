@@ -26,14 +26,12 @@
 /* Begin PBXBuildFile section */
 		DA0562112C69DF000024083A /* SUCeritifcate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562102C69DF000024083A /* SUCeritifcate.m */; };
 		DA0562142C69EB190024083A /* SUKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562132C69EB190024083A /* SUKeychain.m */; };
-		DA0562172C69F3670024083A /* AUAuthorization.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA0562162C69F3670024083A /* AUAuthorization.mm */; };
 		DA05622B2C6A14940024083A /* SUCeritifcate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562102C69DF000024083A /* SUCeritifcate.m */; };
 		DA0562342C6A17550024083A /* SUKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562132C69EB190024083A /* SUKeychain.m */; };
 		DA05623A2C6A2B230024083A /* NSData+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562372C6A2B230024083A /* NSData+HexString.m */; };
 		DA05623B2C6A2B230024083A /* NSData+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562392C6A2B230024083A /* NSData+SHA1.m */; };
 		DA05623C2C6A2B230024083A /* NSData+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562372C6A2B230024083A /* NSData+HexString.m */; };
 		DA05623D2C6A2B230024083A /* NSData+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562392C6A2B230024083A /* NSData+SHA1.m */; };
-		DA0562512C6B74A20024083A /* SecurityUtilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA0562502C6B74A20024083A /* SecurityUtilities.mm */; };
 		DA0562522C6B764D0024083A /* IUIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562492C6B70670024083A /* IUIdentity.m */; };
 		DA0562532C6B76560024083A /* IUIdentityQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DA05624D2C6B70670024083A /* IUIdentityQuery.m */; };
 		DAEB691B2C62448A004B2265 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = DAEB69192C62448A004B2265 /* main.mm */; };
@@ -298,12 +296,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAEB691B2C62448A004B2265 /* main.mm in Sources */,
-				DA0562512C6B74A20024083A /* SecurityUtilities.mm in Sources */,
 				DA05623A2C6A2B230024083A /* NSData+HexString.m in Sources */,
 				DA05623B2C6A2B230024083A /* NSData+SHA1.m in Sources */,
 				DA0562142C69EB190024083A /* SUKeychain.m in Sources */,
 				DA0562112C69DF000024083A /* SUCeritifcate.m in Sources */,
-				DA0562172C69F3670024083A /* AUAuthorization.mm in Sources */,
 				DA0562532C6B76560024083A /* IUIdentityQuery.m in Sources */,
 				DA0562522C6B764D0024083A /* IUIdentity.m in Sources */,
 			);
