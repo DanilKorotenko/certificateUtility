@@ -65,6 +65,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		DA984CD32C74627E00D7DD9C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		DAEBCAEB2C610F2F004B2265 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
@@ -97,6 +106,7 @@
 		DA05624D2C6B70670024083A /* IUIdentityQuery.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IUIdentityQuery.m; sourceTree = "<group>"; };
 		DA05624F2C6B74A20024083A /* SecurityUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecurityUtilities.h; sourceTree = "<group>"; };
 		DA0562502C6B74A20024083A /* SecurityUtilities.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SecurityUtilities.mm; sourceTree = "<group>"; };
+		DA984CD52C74627E00D7DD9C /* addCertificateAndMakeTrusted */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = addCertificateAndMakeTrusted; sourceTree = BUILT_PRODUCTS_DIR; };
 		DACA46E82C64BE5B0005B1EB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DAEB69192C62448A004B2265 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		DAEB691C2C624760004B2265 /* testCertificate.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = testCertificate.der; sourceTree = "<group>"; };
@@ -105,10 +115,18 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DA0562252C6A12820024083A /* keychainInfo */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = keychainInfo; sourceTree = "<group>"; };
+		DA984CD62C74627E00D7DD9C /* addCertificateAndMakeTrusted */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = addCertificateAndMakeTrusted; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		DA0562212C6A12820024083A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA984CD22C74627E00D7DD9C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -179,6 +197,7 @@
 				DA05620E2C69DE730024083A /* AuthorizationUtilities */,
 				DAEB691A2C62448A004B2265 /* certificateUtility */,
 				DA0562252C6A12820024083A /* keychainInfo */,
+				DA984CD62C74627E00D7DD9C /* addCertificateAndMakeTrusted */,
 				DAEBCAEE2C610F2F004B2265 /* Products */,
 				DACA46E82C64BE5B0005B1EB /* README.md */,
 				DA05620D2C69DE490024083A /* SecurityUtilities */,
@@ -191,6 +210,7 @@
 			children = (
 				DAEBCAED2C610F2F004B2265 /* certificateUtility */,
 				DA0562242C6A12820024083A /* keychainInfo */,
+				DA984CD52C74627E00D7DD9C /* addCertificateAndMakeTrusted */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -218,6 +238,28 @@
 			);
 			productName = keychainInfo;
 			productReference = DA0562242C6A12820024083A /* keychainInfo */;
+			productType = "com.apple.product-type.tool";
+		};
+		DA984CD42C74627E00D7DD9C /* addCertificateAndMakeTrusted */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA984CD92C74627E00D7DD9C /* Build configuration list for PBXNativeTarget "addCertificateAndMakeTrusted" */;
+			buildPhases = (
+				DA984CD12C74627E00D7DD9C /* Sources */,
+				DA984CD22C74627E00D7DD9C /* Frameworks */,
+				DA984CD32C74627E00D7DD9C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DA984CD62C74627E00D7DD9C /* addCertificateAndMakeTrusted */,
+			);
+			name = addCertificateAndMakeTrusted;
+			packageProductDependencies = (
+			);
+			productName = addCertificateAndMakeTrusted;
+			productReference = DA984CD52C74627E00D7DD9C /* addCertificateAndMakeTrusted */;
 			productType = "com.apple.product-type.tool";
 		};
 		DAEBCAEC2C610F2F004B2265 /* certificateUtility */ = {
@@ -254,6 +296,9 @@
 					DA05622C2C6A14A90024083A = {
 						CreatedOnToolsVersion = 16.0;
 					};
+					DA984CD42C74627E00D7DD9C = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					DAEBCAEC2C610F2F004B2265 = {
 						CreatedOnToolsVersion = 16.0;
 					};
@@ -275,6 +320,7 @@
 				DAEBCAEC2C610F2F004B2265 /* certificateUtility */,
 				DA0562232C6A12820024083A /* keychainInfo */,
 				DA05622C2C6A14A90024083A /* BuildAll */,
+				DA984CD42C74627E00D7DD9C /* addCertificateAndMakeTrusted */,
 			);
 		};
 /* End PBXProject section */
@@ -288,6 +334,13 @@
 				DA05623C2C6A2B230024083A /* NSData+HexString.m in Sources */,
 				DA05623D2C6A2B230024083A /* NSData+SHA1.m in Sources */,
 				DA05622B2C6A14940024083A /* SUCeritifcate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA984CD12C74627E00D7DD9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +399,22 @@
 			name = Debug;
 		};
 		DA05622F2C6A14A90024083A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DA984CDA2C74627E00D7DD9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DA984CDB2C74627E00D7DD9C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -507,6 +576,15 @@
 			buildConfigurations = (
 				DA05622E2C6A14A90024083A /* Debug */,
 				DA05622F2C6A14A90024083A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA984CD92C74627E00D7DD9C /* Build configuration list for PBXNativeTarget "addCertificateAndMakeTrusted" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA984CDA2C74627E00D7DD9C /* Debug */,
+				DA984CDB2C74627E00D7DD9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
