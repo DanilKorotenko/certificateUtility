@@ -15,39 +15,48 @@
 const char *userLogin = "trustadmin";
 const char *userPass = "pass123456";
 
+bool createUserIfNeeded()
+{
+    NSString *userName = [NSString stringWithUTF8String:userLogin];
+    IUIdentity *user = [IUIdentityQuery localUserWithFullName:userName];
+    if (!user)
+    {
+        NSString *userPassword = [NSString stringWithUTF8String:userPass];
+
+        user = [IUIdentity newHiddenUserWithFullName:userName password:userPassword];
+
+        NSError *error = nil;
+        if (![user commit:&error])
+        {
+            NSLog(@"user commit error: %@", error);
+            return false;
+        }
+
+        IUIdentity *administrators = [IUIdentityQuery administratorsGroup];
+        if (!administrators)
+        {
+            NSLog(@"No administrators group");
+            return false;
+        }
+
+        [administrators addMember:user];
+
+        if (![administrators commit:&error])
+        {
+            NSLog(@"administrators commit error: %@", error);
+            return false;
+        }
+    }
+    return true;
+}
+
 int main(int argc, const char * argv[])
 {
     @autoreleasepool
     {
-        NSString *userName = [NSString stringWithUTF8String:userLogin];
-        IUIdentity *user = [IUIdentityQuery localUserWithFullName:userName];
-        if (!user)
+        if (!createUserIfNeeded())
         {
-            NSString *userPassword = [NSString stringWithUTF8String:userPass];
-
-            user = [IUIdentity newHiddenUserWithFullName:userName password:userPassword];
-
-            NSError *error = nil;
-            if (![user commit:&error])
-            {
-                NSLog(@"%@", error);
-                return 0;
-            }
-
-            IUIdentity *administrators = [IUIdentityQuery administratorsGroup];
-            if (!administrators)
-            {
-                NSLog(@"%@", @"No administrators group");
-                return 0;
-            }
-
-            [administrators addMember:user];
-
-            if (![administrators commit:&error])
-            {
-                NSLog(@"%@", error);
-                return 0;
-            }
+            return 0;
         }
 
         SUCeritifcate *certificate = [[SUCeritifcate alloc] initWithPath:@"testCertificate.der"];
