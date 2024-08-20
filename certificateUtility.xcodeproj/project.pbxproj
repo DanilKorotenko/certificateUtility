@@ -24,8 +24,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		DA0562112C69DF000024083A /* SUCeritifcate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562102C69DF000024083A /* SUCeritifcate.m */; };
-		DA0562142C69EB190024083A /* SUKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562132C69EB190024083A /* SUKeychain.m */; };
 		DA05622B2C6A14940024083A /* SUCeritifcate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562102C69DF000024083A /* SUCeritifcate.m */; };
 		DA0562342C6A17550024083A /* SUKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562132C69EB190024083A /* SUKeychain.m */; };
 		DA05623A2C6A2B230024083A /* NSData+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562372C6A2B230024083A /* NSData+HexString.m */; };
@@ -34,6 +32,8 @@
 		DA05623D2C6A2B230024083A /* NSData+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562392C6A2B230024083A /* NSData+SHA1.m */; };
 		DA0562522C6B764D0024083A /* IUIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562492C6B70670024083A /* IUIdentity.m */; };
 		DA0562532C6B76560024083A /* IUIdentityQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DA05624D2C6B70670024083A /* IUIdentityQuery.m */; };
+		DA984CDE2C74634600D7DD9C /* SUCeritifcate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562102C69DF000024083A /* SUCeritifcate.m */; };
+		DA984CDF2C74634D00D7DD9C /* SUKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562132C69EB190024083A /* SUKeychain.m */; };
 		DAEB691B2C62448A004B2265 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = DAEB69192C62448A004B2265 /* main.mm */; };
 		DAEB691D2C62478B004B2265 /* testCertificate.der in CopyFiles */ = {isa = PBXBuildFile; fileRef = DAEB691C2C624760004B2265 /* testCertificate.der */; };
 /* End PBXBuildFile section */
@@ -52,6 +52,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = DA0562232C6A12820024083A;
 			remoteInfo = keychainInfo;
+		};
+		DA984CDC2C7462B400D7DD9C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAEBCAE52C610F2F004B2265 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA984CD42C74627E00D7DD9C;
+			remoteInfo = addCertificateAndMakeTrusted;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -273,6 +280,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DA984CDD2C7462B400D7DD9C /* PBXTargetDependency */,
 			);
 			name = certificateUtility;
 			packageProductDependencies = (
@@ -341,6 +349,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA984CDF2C74634D00D7DD9C /* SUKeychain.m in Sources */,
+				DA984CDE2C74634600D7DD9C /* SUCeritifcate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,8 +361,6 @@
 				DAEB691B2C62448A004B2265 /* main.mm in Sources */,
 				DA05623A2C6A2B230024083A /* NSData+HexString.m in Sources */,
 				DA05623B2C6A2B230024083A /* NSData+SHA1.m in Sources */,
-				DA0562142C69EB190024083A /* SUKeychain.m in Sources */,
-				DA0562112C69DF000024083A /* SUCeritifcate.m in Sources */,
 				DA0562532C6B76560024083A /* IUIdentityQuery.m in Sources */,
 				DA0562522C6B764D0024083A /* IUIdentity.m in Sources */,
 			);
@@ -370,6 +378,11 @@
 			isa = PBXTargetDependency;
 			target = DA0562232C6A12820024083A /* keychainInfo */;
 			targetProxy = DA0562322C6A14B10024083A /* PBXContainerItemProxy */;
+		};
+		DA984CDD2C7462B400D7DD9C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA984CD42C74627E00D7DD9C /* addCertificateAndMakeTrusted */;
+			targetProxy = DA984CDC2C7462B400D7DD9C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -409,7 +422,10 @@
 		DA984CDA2C74627E00D7DD9C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/addCertificateAndMakeTrusted/entitlements.plist";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QBPW9LPK8E;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danilkorotenko.addCertificateAndMakeTrusted;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -417,7 +433,10 @@
 		DA984CDB2C74627E00D7DD9C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/addCertificateAndMakeTrusted/entitlements.plist";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QBPW9LPK8E;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danilkorotenko.addCertificateAndMakeTrusted;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

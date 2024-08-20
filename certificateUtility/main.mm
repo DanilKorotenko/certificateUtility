@@ -6,13 +6,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "../SecurityUtilities/SUCeritifcate.h"
-#import "../SecurityUtilities/SUKeychain.h"
 #import "../IdentityUtilities/IUIdentity.h"
 #import "../IdentityUtilities/IUIdentityQuery.h"
 
 const char *userLogin = "trustadmin";
 const char *userPass = "pass123456";
+
+const char *tool = "addCertificateAndMakeTrusted";
 
 AuthorizationEnvironment createEnvironment(const char *aLogin, const char *aPassword)
 {
@@ -68,44 +68,21 @@ int main(int argc, const char * argv[])
             }
         }
 
-        SUCeritifcate *certificate = [[SUCeritifcate alloc] initWithPath:@"testCertificate.der"];
-
-        if (!certificate)
-        {
-            return 0;
-        }
-
-        __block OSStatus err = noErr;
-        SUKeychain *keychain = [[SUKeychain alloc] initSystemKeychain];
-        if (!keychain)
-        {
-            NSLog(@"No keychain");
-            return 0;
-        }
-
-        if (![keychain containsCertificate:certificate])
-        {
-            err = [keychain addCertificate:certificate];
-            if (err != noErr)
-            {
-                NSLog(@"SecCertificateAddToKeychain failure. Error: %d", err);
-            }
-        }
-        else
-        {
-            NSLog(@"Certificate already in keychain");
-        }
-
         AuthorizationRef myAuthorizationRef = NULL;
         OSStatus myStatus = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment,
             kAuthorizationFlagDefaults, &myAuthorizationRef);
 
-        AuthorizationItem myItems[1];
+        AuthorizationItem myItems[2];
 
         myItems[0].name = "com.apple.trust-settings.admin";
         myItems[0].valueLength = 0;
         myItems[0].value = NULL;
         myItems[0].flags = 0;
+
+        myItems[1].name = kAuthorizationRightExecute;
+        myItems[1].valueLength = strlen(tool);
+        myItems[1].value = (void *)tool;
+        myItems[1].flags = 0;
 
         AuthorizationRights myRights;
         myRights.count = sizeof (myItems) / sizeof (myItems[0]);
@@ -119,12 +96,11 @@ int main(int argc, const char * argv[])
         myStatus = AuthorizationCopyRights(myAuthorizationRef, &myRights,
             &env, myFlags, &myAuthorizedRights);
 
-        err = SecTrustSettingsSetTrustSettings(certificate.certificateRef, kSecTrustSettingsDomainAdmin, NULL);
+        FILE *outputFile;
+        char *args[1];
+        args[0] = NULL;
+        AuthorizationExecuteWithPrivileges(myAuthorizationRef, tool, kAuthorizationFlagDefaults, args, &outputFile);
 
-        if (err != noErr)
-        {
-            NSLog(@"SecTrustSettingsSetTrustSettings failure. Error: %d", err);
-        }
 
         if (myAuthorizedRights)
         {
