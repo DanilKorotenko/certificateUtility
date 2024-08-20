@@ -84,7 +84,12 @@
 
 + (IUIdentity *)administratorsGroup
 {
-    return [IUIdentityQuery identityWithClass:kCSIdentityClassGroup fullName:@"admin"];
+    static IUIdentity *result = nil;
+    if (result == nil)
+    {
+        result = [IUIdentityQuery identityWithClass:kCSIdentityClassGroup fullName:@"admin"];
+    }
+    return result;
 }
 
 #pragma mark -

@@ -27,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(readonly)     NSInteger       posixID;
 @property(readonly)     CSIdentityClass identityClass;
 
+@property(readonly)     BOOL isAdmin; // is member of admin group
+
 - (void)deleteIdentity;
 - (BOOL)commit:(NSError **)anError;
 - (void)commitAsyncDidEndBlock:(void (^)(BOOL commitResult, NSError *anError))didEndBlock;
@@ -34,7 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addAlias:(NSString *)anAlias;
 - (void)removeAlias:(NSString *)anAlias;
 
-// only applicable if identity is group
+#pragma mark group class
+
 - (void)addMember:(IUIdentity *)anIdentity;
 
 @end

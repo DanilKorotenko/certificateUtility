@@ -6,6 +6,7 @@
 //
 
 #import "IUIdentity.h"
+#import "IUIdentityQuery.h"
 
 @interface IUIdentity ()
 
@@ -185,6 +186,13 @@
     return CSIdentityGetClass(self.identity);
 }
 
+// is member of admin group
+- (BOOL)isAdmin
+{
+    Boolean result = CSIdentityIsMemberOfGroup(self.identity, [IUIdentityQuery administratorsGroup].identity);
+    return result ? YES : NO;
+}
+
 #pragma mark -
 
 - (void)deleteIdentity
@@ -222,6 +230,8 @@
 {
     CSIdentityRemoveAlias(self.identity, (__bridge CFStringRef)(anAlias));
 }
+
+#pragma mark group class
 
 - (void)addMember:(IUIdentity *)anIdentity
 {

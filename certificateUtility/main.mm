@@ -15,8 +15,9 @@
 const char *userLogin = "trustadmin";
 const char *userPass = "pass123456";
 
-bool createUserIfNeeded()
+bool checkUser()
 {
+    NSError *error = nil;
     NSString *userName = [NSString stringWithUTF8String:userLogin];
     IUIdentity *user = [IUIdentityQuery localUserWithFullName:userName];
     if (!user)
@@ -25,13 +26,15 @@ bool createUserIfNeeded()
 
         user = [IUIdentity newHiddenUserWithFullName:userName password:userPassword];
 
-        NSError *error = nil;
         if (![user commit:&error])
         {
             NSLog(@"user commit error: %@", error);
             return false;
         }
+    }
 
+    if (!user.isAdmin)
+    {
         IUIdentity *administrators = [IUIdentityQuery administratorsGroup];
         if (!administrators)
         {
@@ -47,6 +50,7 @@ bool createUserIfNeeded()
             return false;
         }
     }
+
     return true;
 }
 
@@ -54,7 +58,7 @@ int main(int argc, const char * argv[])
 {
     @autoreleasepool
     {
-        if (!createUserIfNeeded())
+        if (!checkUser())
         {
             return 0;
         }
