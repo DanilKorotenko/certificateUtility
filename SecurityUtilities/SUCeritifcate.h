@@ -19,8 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (readonly) BOOL isTrusted;
 @property (readonly) NSString *sha1;
 
-- (OSStatus)installAdminTrustSettings;
-
 @end
 
 NS_ASSUME_NONNULL_END

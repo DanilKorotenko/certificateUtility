@@ -123,11 +123,4 @@
     return sha1;
 }
 
-#pragma mark -
-
-- (OSStatus)installAdminTrustSettings
-{
-    return SecTrustSettingsSetTrustSettings(self.certificateRef, kSecTrustSettingsDomainAdmin, NULL);
-}
-
 @end

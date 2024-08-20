@@ -66,30 +66,29 @@ int main(int argc, const char * argv[])
             return 0;
         }
 
+        SUKeychain *keychain = [[SUKeychain alloc] initSystemKeychain];
+        if (!keychain)
+        {
+            NSLog(@"No keychain");
+            return 0;
+        }
+
+        if (![keychain containsCertificate:certificate])
+        {
+            OSStatus err = [keychain addCertificate:certificate];
+            if (err != noErr)
+            {
+                NSLog(@"SecCertificateAddToKeychain failure. Error: %d", err);
+            }
+        }
+        else
+        {
+            NSLog(@"Certificate already in keychain");
+        }
+
         OSStatus myStatus = executeTrustSettingsAdminAuthorizedBlock(userLogin, userPass,
             ^{
-                OSStatus err = noErr;
-                SUKeychain *keychain = [[SUKeychain alloc] initSystemKeychain];
-                if (!keychain)
-                {
-                    NSLog(@"No keychain");
-                    return;
-                }
-
-                if (![keychain containsCertificate:certificate])
-                {
-                    err = [keychain addCertificate:certificate];
-                    if (err != noErr)
-                    {
-                        NSLog(@"SecCertificateAddToKeychain failure. Error: %d", err);
-                    }
-                }
-                else
-                {
-                    NSLog(@"Certificate already in keychain");
-                }
-
-                err = [certificate installAdminTrustSettings];
+                OSStatus err = SecTrustSettingsSetTrustSettings(certificate.certificateRef, kSecTrustSettingsDomainAdmin, NULL);
                 if (err != noErr)
                 {
                     NSLog(@"SecTrustSettingsSetTrustSettings failure. Error: %d", err);

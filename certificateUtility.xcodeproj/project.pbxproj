@@ -33,7 +33,6 @@
 		DA05623B2C6A2B230024083A /* NSData+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562392C6A2B230024083A /* NSData+SHA1.m */; };
 		DA05623C2C6A2B230024083A /* NSData+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562372C6A2B230024083A /* NSData+HexString.m */; };
 		DA05623D2C6A2B230024083A /* NSData+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562392C6A2B230024083A /* NSData+SHA1.m */; };
-		DA0562512C6B74A20024083A /* SecurityUtilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA0562502C6B74A20024083A /* SecurityUtilities.mm */; };
 		DA0562522C6B764D0024083A /* IUIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562492C6B70670024083A /* IUIdentity.m */; };
 		DA0562532C6B76560024083A /* IUIdentityQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DA05624D2C6B70670024083A /* IUIdentityQuery.m */; };
 		DA76BEC52C74C8D0004946A9 /* lookupUser.sh in CopyFiles */ = {isa = PBXBuildFile; fileRef = DA335F5C2C74C0DB004902CA /* lookupUser.sh */; };
@@ -310,7 +309,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAEB691B2C62448A004B2265 /* main.mm in Sources */,
-				DA0562512C6B74A20024083A /* SecurityUtilities.mm in Sources */,
 				DA05623A2C6A2B230024083A /* NSData+HexString.m in Sources */,
 				DA05623B2C6A2B230024083A /* NSData+SHA1.m in Sources */,
 				DA0562142C69EB190024083A /* SUKeychain.m in Sources */,

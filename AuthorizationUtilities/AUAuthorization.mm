@@ -7,25 +7,6 @@
 
 #import "AUAuthorization.h"
 
-AuthorizationEnvironment createEnvironment(const char *aLogin, const char *aPassword)
-{
-    static AuthorizationItem authenv[] =
-    {
-        { kAuthorizationEnvironmentUsername },
-        { kAuthorizationEnvironmentPassword },
-        { kAuthorizationEnvironmentShared }
-    };
-
-    AuthorizationEnvironment env = { 0, authenv };
-    authenv[0].valueLength = strlen(aLogin);
-    authenv[0].value = (void *)aLogin;
-    authenv[1].valueLength = strlen(aPassword);
-    authenv[1].value = (void *)aPassword;
-    env.count = 3;
-
-    return env;
-}
-
 OSStatus executeTrustSettingsAdminAuthorizedBlock(const char *aLogin, const char *aPassword, void (^aBlock)(void))
 {
     AuthorizationRef myAuthorizationRef = NULL;
@@ -45,7 +26,14 @@ OSStatus executeTrustSettingsAdminAuthorizedBlock(const char *aLogin, const char
 
     AuthorizationFlags myFlags = kAuthorizationFlagDefaults | kAuthorizationFlagExtendRights;
 
-    AuthorizationEnvironment env = createEnvironment(aLogin, aPassword);
+    AuthorizationItem authenv[] =
+    {
+        { kAuthorizationEnvironmentUsername, strlen(aLogin), (void *)aLogin, 0 },
+        { kAuthorizationEnvironmentPassword, strlen(aPassword), (void *)aPassword, 0 },
+        { kAuthorizationEnvironmentShared, 0, NULL, 0 }
+    };
+
+    AuthorizationEnvironment env = { 3, authenv };
 
     AuthorizationRights *myAuthorizedRights = NULL;
     myStatus = AuthorizationCopyRights(myAuthorizationRef, &myRights,
