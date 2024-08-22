@@ -111,10 +111,12 @@
 		DAEB69192C62448A004B2265 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		DAEB691C2C624760004B2265 /* testCertificate.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = testCertificate.der; sourceTree = "<group>"; };
 		DAEBCAED2C610F2F004B2265 /* certificateUtility */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = certificateUtility; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAEC60CE2C774F85006743EB /* certificateTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = certificateTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DA0562252C6A12820024083A /* keychainInfo */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = keychainInfo; sourceTree = "<group>"; };
+		DAEC60CF2C774F85006743EB /* certificateTool */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = certificateTool; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		DAEBCAEA2C610F2F004B2265 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAEC60CB2C774F85006743EB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -192,6 +201,7 @@
 				DA05620E2C69DE730024083A /* AuthorizationUtilities */,
 				DAEB691A2C62448A004B2265 /* certificateUtility */,
 				DA0562252C6A12820024083A /* keychainInfo */,
+				DAEC60CF2C774F85006743EB /* certificateTool */,
 				DAEBCAEE2C610F2F004B2265 /* Products */,
 				DACA46E82C64BE5B0005B1EB /* README.md */,
 				DA05620D2C69DE490024083A /* SecurityUtilities */,
@@ -204,6 +214,7 @@
 			children = (
 				DAEBCAED2C610F2F004B2265 /* certificateUtility */,
 				DA0562242C6A12820024083A /* keychainInfo */,
+				DAEC60CE2C774F85006743EB /* certificateTool.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -252,6 +263,28 @@
 			productReference = DAEBCAED2C610F2F004B2265 /* certificateUtility */;
 			productType = "com.apple.product-type.tool";
 		};
+		DAEC60CD2C774F85006743EB /* certificateTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAEC60DE2C774F87006743EB /* Build configuration list for PBXNativeTarget "certificateTool" */;
+			buildPhases = (
+				DAEC60CA2C774F85006743EB /* Sources */,
+				DAEC60CB2C774F85006743EB /* Frameworks */,
+				DAEC60CC2C774F85006743EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DAEC60CF2C774F85006743EB /* certificateTool */,
+			);
+			name = certificateTool;
+			packageProductDependencies = (
+			);
+			productName = certificateTool;
+			productReference = DAEC60CE2C774F85006743EB /* certificateTool.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -268,6 +301,9 @@
 						CreatedOnToolsVersion = 16.0;
 					};
 					DAEBCAEC2C610F2F004B2265 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					DAEC60CD2C774F85006743EB = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
@@ -288,9 +324,20 @@
 				DAEBCAEC2C610F2F004B2265 /* certificateUtility */,
 				DA0562232C6A12820024083A /* keychainInfo */,
 				DA05622C2C6A14A90024083A /* BuildAll */,
+				DAEC60CD2C774F85006743EB /* certificateTool */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DAEC60CC2C774F85006743EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DA0562202C6A12820024083A /* Sources */ = {
@@ -316,6 +363,13 @@
 				DA0562172C69F3670024083A /* AUAuthorization.mm in Sources */,
 				DA0562532C6B76560024083A /* IUIdentityQuery.m in Sources */,
 				DA0562522C6B764D0024083A /* IUIdentity.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAEC60CA2C774F85006743EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +558,52 @@
 			};
 			name = Release;
 		};
+		DAEC60DB2C774F87006743EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = certificateTool/certificateTool.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QBPW9LPK8E;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danilkorotenko.certificateTool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		DAEC60DC2C774F87006743EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = certificateTool/certificateTool.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QBPW9LPK8E;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danilkorotenko.certificateTool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -539,6 +639,15 @@
 			buildConfigurations = (
 				DAEBCAF52C610F2F004B2265 /* Debug */,
 				DAEBCAF62C610F2F004B2265 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAEC60DE2C774F87006743EB /* Build configuration list for PBXNativeTarget "certificateTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAEC60DB2C774F87006743EB /* Debug */,
+				DAEC60DC2C774F87006743EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
