@@ -11,6 +11,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IUIdentity : NSObject
 
++ (IUIdentity *)administratorsGroup;
++ (IUIdentity *)localUserWithFullName:(NSString *)aName;
++ (IUIdentity *)currentUser;
+
 + (IUIdentity *)newHiddenUserWithFullName:(NSString *)aFullName password:(NSString *)aPassword;
 
 - (instancetype)initWithIdentity:(CSIdentityRef)anIdentity;
@@ -23,11 +27,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(readonly)     NSString        *imageDataType;
 @property(readwrite)    NSURL           *imageURL;
 @property(readonly)     NSString        *uuidString;
+@property(readonly)     BOOL            isGroup;
 @property(readwrite)    BOOL            isEnabled;
 @property(readonly)     NSInteger       posixID;
 @property(readonly)     CSIdentityClass identityClass;
 
 @property(readonly)     BOOL isAdmin; // is member of admin group
+
+@property(readonly)     CSIdentityQueryRef groupMemebershipQuery;
 
 - (void)deleteIdentity;
 - (BOOL)commit:(NSError **)anError;

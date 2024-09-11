@@ -10,7 +10,7 @@
 #import "../SecurityUtilities/SUKeychain.h"
 #import "../AuthorizationUtilities/AUAuthorization.h"
 #import "../IdentityUtilities/IUIdentity.h"
-#import "../IdentityUtilities/IUIdentityQuery.h"
+#import "../IdentityUtilities/IUIdentityQuery/IUIdentityQuery.h"
 
 const char *userLogin = "trustadmin";
 const char *userPass = "pass123456";
@@ -19,7 +19,7 @@ bool checkUser()
 {
     NSError *error = nil;
     NSString *userName = [NSString stringWithUTF8String:userLogin];
-    IUIdentity *user = [IUIdentityQuery localUserWithFullName:userName];
+    IUIdentity *user = [IUIdentity localUserWithFullName:userName];
     if (!user)
     {
         NSString *userPassword = [NSString stringWithUTF8String:userPass];
@@ -35,7 +35,7 @@ bool checkUser()
 
     if (!user.isAdmin)
     {
-        IUIdentity *administrators = [IUIdentityQuery administratorsGroup];
+        IUIdentity *administrators = [IUIdentity administratorsGroup];
         if (!administrators)
         {
             NSLog(@"No administrators group");

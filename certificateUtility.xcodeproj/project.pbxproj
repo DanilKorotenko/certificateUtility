@@ -34,7 +34,6 @@
 		DA05623C2C6A2B230024083A /* NSData+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562372C6A2B230024083A /* NSData+HexString.m */; };
 		DA05623D2C6A2B230024083A /* NSData+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562392C6A2B230024083A /* NSData+SHA1.m */; };
 		DA0562522C6B764D0024083A /* IUIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0562492C6B70670024083A /* IUIdentity.m */; };
-		DA0562532C6B76560024083A /* IUIdentityQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DA05624D2C6B70670024083A /* IUIdentityQuery.m */; };
 		DA76BEC52C74C8D0004946A9 /* lookupUser.sh in CopyFiles */ = {isa = PBXBuildFile; fileRef = DA335F5C2C74C0DB004902CA /* lookupUser.sh */; };
 		DACA46E62C637DDF0005B1EB /* createTrustAdminUser.sh in CopyFiles */ = {isa = PBXBuildFile; fileRef = DACA46E42C637AF80005B1EB /* createTrustAdminUser.sh */; };
 		DACA46E72C637DDF0005B1EB /* deleteTrustAdminUser.sh in CopyFiles */ = {isa = PBXBuildFile; fileRef = DACA46E52C637AF80005B1EB /* deleteTrustAdminUser.sh */; };
@@ -100,8 +99,6 @@
 		DA0562492C6B70670024083A /* IUIdentity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IUIdentity.m; sourceTree = "<group>"; };
 		DA05624A2C6B70670024083A /* IUIdentityAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IUIdentityAdapter.h; sourceTree = "<group>"; };
 		DA05624B2C6B70670024083A /* IUIdentityAdapter.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = IUIdentityAdapter.mm; sourceTree = "<group>"; };
-		DA05624C2C6B70670024083A /* IUIdentityQuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IUIdentityQuery.h; sourceTree = "<group>"; };
-		DA05624D2C6B70670024083A /* IUIdentityQuery.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IUIdentityQuery.m; sourceTree = "<group>"; };
 		DA05624F2C6B74A20024083A /* SecurityUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecurityUtilities.h; sourceTree = "<group>"; };
 		DA0562502C6B74A20024083A /* SecurityUtilities.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SecurityUtilities.mm; sourceTree = "<group>"; };
 		DA335F5C2C74C0DB004902CA /* lookupUser.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = lookupUser.sh; sourceTree = "<group>"; };
@@ -116,6 +113,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DA0562252C6A12820024083A /* keychainInfo */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = keychainInfo; sourceTree = "<group>"; };
+		DAA2BF952C91E1660011280E /* IUIdentityQuery */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = IUIdentityQuery; sourceTree = "<group>"; };
 		DAEC60CF2C774F85006743EB /* certificateTool */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = certificateTool; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -173,12 +171,11 @@
 		DA05624E2C6B70670024083A /* IdentityUtilities */ = {
 			isa = PBXGroup;
 			children = (
+				DAA2BF952C91E1660011280E /* IUIdentityQuery */,
 				DA0562482C6B70670024083A /* IUIdentity.h */,
 				DA0562492C6B70670024083A /* IUIdentity.m */,
 				DA05624A2C6B70670024083A /* IUIdentityAdapter.h */,
 				DA05624B2C6B70670024083A /* IUIdentityAdapter.mm */,
-				DA05624C2C6B70670024083A /* IUIdentityQuery.h */,
-				DA05624D2C6B70670024083A /* IUIdentityQuery.m */,
 			);
 			path = IdentityUtilities;
 			sourceTree = "<group>";
@@ -255,6 +252,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DAA2BF952C91E1660011280E /* IUIdentityQuery */,
 			);
 			name = certificateUtility;
 			packageProductDependencies = (
@@ -361,7 +361,6 @@
 				DA0562142C69EB190024083A /* SUKeychain.m in Sources */,
 				DA0562112C69DF000024083A /* SUCeritifcate.m in Sources */,
 				DA0562172C69F3670024083A /* AUAuthorization.mm in Sources */,
-				DA0562532C6B76560024083A /* IUIdentityQuery.m in Sources */,
 				DA0562522C6B764D0024083A /* IUIdentity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,7 +539,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QBPW9LPK8E;
+				DEVELOPMENT_TEAM = "";
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.danilkorotenko.certificateUtility;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -551,7 +550,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QBPW9LPK8E;
+				DEVELOPMENT_TEAM = "";
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.danilkorotenko.certificateUtility;
 				PRODUCT_NAME = "$(TARGET_NAME)";

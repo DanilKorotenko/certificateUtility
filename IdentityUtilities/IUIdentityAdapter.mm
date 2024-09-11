@@ -5,14 +5,14 @@
 //  Created by Danil Korotenko on 8/9/24.
 //
 
-#import "IUIdentityQuery.h"
+#import "IUIdentityQuery/IUIdentityQuery.h"
 
 #include <string>
 
 bool IUIdentityUserExist(const std::string &aUserName)
 {
     NSString *userName = [NSString stringWithUTF8String:aUserName.c_str()];
-    IUIdentity *user = [IUIdentityQuery localUserWithFullName:userName];
+    IUIdentity *user = [IUIdentity localUserWithFullName:userName];
     if (user)
     {
         return true;
@@ -34,7 +34,7 @@ bool IUIdentityAddAdminUser(const std::string &aUserName, const std::string &aPa
         return false;
     }
 
-    IUIdentity *administrators = [IUIdentityQuery administratorsGroup];
+    IUIdentity *administrators = [IUIdentity administratorsGroup];
     if (!administrators)
     {
         errorDescription = "No administrators group";
@@ -54,7 +54,7 @@ bool IUIdentityAddAdminUser(const std::string &aUserName, const std::string &aPa
 bool IUIdentityDeleteUser(const std::string &aUserName, std::string &errorDescription)
 {
     NSString *userName = [NSString stringWithUTF8String:aUserName.c_str()];
-    IUIdentity *testUser = [IUIdentityQuery localUserWithFullName:userName];
+    IUIdentity *testUser = [IUIdentity localUserWithFullName:userName];
     if (testUser)
     {
         [testUser deleteIdentity];
@@ -66,4 +66,9 @@ bool IUIdentityDeleteUser(const std::string &aUserName, std::string &errorDescri
         }
     }
     return true;
+}
+
+bool IUCurrentUserIsAdmin()
+{
+    return [IUIdentity currentUser].isAdmin ? true : false;
 }
