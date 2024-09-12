@@ -13,6 +13,7 @@
 
 @property (readwrite) SecCertificateRef certificateRef;
 @property (readonly) NSArray *adminTrustSettings;
+@property (readonly) NSArray *userTrustSettings;
 
 @end
 
@@ -20,6 +21,7 @@
 
 @synthesize name;
 @synthesize adminTrustSettings;
+@synthesize userTrustSettings;
 @synthesize sha1;
 
 - (instancetype)initWithCertificate:(SecCertificateRef)aCertificate
@@ -107,9 +109,32 @@
     return adminTrustSettings;
 }
 
-- (BOOL)isTrusted
+- (NSArray *)userTrustSettings
+{
+    if (userTrustSettings == nil)
+    {
+        CFArrayRef trustSettings = NULL;
+        if (SecTrustSettingsCopyTrustSettings(self.certificateRef, kSecTrustSettingsDomainUser, &trustSettings) == noErr && trustSettings)
+        {
+            userTrustSettings = CFBridgingRelease(trustSettings);
+        }
+    }
+    return userTrustSettings;
+}
+
+- (BOOL)isAdminTrusted
 {
     return self.adminTrustSettings != nil;
+}
+
+- (BOOL)isUserTrusted
+{
+    return self.userTrustSettings != nil;
+}
+
+- (BOOL)isAnyTrusted
+{
+    return self.isAdminTrusted || self.isUserTrusted;
 }
 
 - (NSString *)sha1

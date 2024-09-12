@@ -16,7 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (readonly) NSString *name;
 @property (readonly) SecCertificateRef certificateRef;
-@property (readonly) BOOL isTrusted;
+@property (readonly) BOOL isAdminTrusted;
+@property (readonly) BOOL isUserTrusted;
+@property (readonly) BOOL isAnyTrusted;
 @property (readonly) NSString *sha1;
 
 @end

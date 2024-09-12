@@ -13,9 +13,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SUKeychain : NSObject
 
-- (instancetype)initSystemKeychain;
++ (SUKeychain *)systemKeychain;
++ (SUKeychain *)loginKeychain;
++ (SUKeychain *)commonKeychain;
 
 - (BOOL)containsCertificate:(SUCeritifcate *)aCertificate;
+- (SUCeritifcate *)findCertificateBySHA1:(NSString *)aSHA1;
 
 - (OSStatus)addCertificate:(SUCeritifcate *)aCertificate;
 

@@ -15,13 +15,28 @@
 
 @implementation SUKeychain
 
-- (instancetype)initSystemKeychain
++ (SUKeychain *)systemKeychain
+{
+    return [[SUKeychain alloc] initWithDomain:kSecPreferencesDomainSystem];
+}
+
++ (SUKeychain *)loginKeychain
+{
+    return [[SUKeychain alloc] initWithDomain:kSecPreferencesDomainUser];
+}
+
++ (SUKeychain *)commonKeychain
+{
+    return [[SUKeychain alloc] initWithDomain:kSecPreferencesDomainCommon];
+}
+
+- (instancetype)initWithDomain:(SecPreferencesDomain)aDomain
 {
     self = [super init];
     if (self)
     {
         SecKeychainRef keychain = NULL;
-        SecKeychainCopyDomainDefault(kSecPreferencesDomainSystem, &keychain);
+        SecKeychainCopyDomainDefault(aDomain, &keychain);
 
         if (!keychain)
         {
@@ -68,6 +83,34 @@
 
     return result;
 }
+
+- (SUCeritifcate *)findCertificateBySHA1:(NSString *)aSHA1
+{
+    SecKeychainSearchRef searchRef = NULL;
+    OSStatus status = SecKeychainSearchCreateFromAttributes(self.keychain, kSecCertificateItemClass, NULL, &searchRef);
+    if (status || !searchRef)
+    {
+        return nil;
+    }
+
+    SUCeritifcate *result = nil;
+
+    SecKeychainItemRef candidate = NULL;
+    while (SecKeychainSearchCopyNext(searchRef, &candidate) == noErr)
+    {
+        SUCeritifcate *certificate = [[SUCeritifcate alloc] initWithCertificate:(SecCertificateRef)candidate];
+        if ([certificate.sha1 caseInsensitiveCompare:aSHA1] == NSOrderedSame)
+        {
+            result = certificate;
+            break;
+        }
+    }
+
+    CFRelease(searchRef);
+
+    return result;
+}
+
 
 - (OSStatus)addCertificate:(SUCeritifcate *)aCertificate
 {
