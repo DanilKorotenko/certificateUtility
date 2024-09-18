@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (SUKeychain *)systemKeychain;
 + (SUKeychain *)loginKeychain;
 + (SUKeychain *)commonKeychain;
++ (OSStatus)deleteCertificate:(SUCeritifcate *)aCertificate;
 
 - (BOOL)containsCertificate:(SUCeritifcate *)aCertificate;
 - (SUCeritifcate *)findCertificateBySHA1:(NSString *)aSHA1;

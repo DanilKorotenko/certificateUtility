@@ -30,6 +30,11 @@
     return [[SUKeychain alloc] initWithDomain:kSecPreferencesDomainCommon];
 }
 
++ (OSStatus)deleteCertificate:(SUCeritifcate *)aCertificate
+{
+    return SecKeychainItemDelete((SecKeychainItemRef)aCertificate.certificateRef);
+}
+
 - (instancetype)initWithDomain:(SecPreferencesDomain)aDomain
 {
     self = [super init];
@@ -110,7 +115,6 @@
 
     return result;
 }
-
 
 - (OSStatus)addCertificate:(SUCeritifcate *)aCertificate
 {

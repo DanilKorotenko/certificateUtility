@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (readonly) BOOL isAnyTrusted;
 @property (readonly) NSString *sha1;
 
+- (OSStatus)installTrustSettingsForUser;
+
 @end
 
 NS_ASSUME_NONNULL_END

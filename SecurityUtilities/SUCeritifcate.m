@@ -43,12 +43,11 @@
     self = [super init];
     if (self)
     {
-        NSURL *url = [NSURL fileURLWithPath:aPath isDirectory:NO];
-        NSData *certData = [NSData dataWithContentsOfURL:url];
+        NSData *certData = [NSData dataWithContentsOfFile:aPath];
 
         CFDataRef certDataRef = (__bridge CFDataRef)(certData);
 
-        SecCertificateRef result = SecCertificateCreateWithData(NULL, certDataRef);
+        SecCertificateRef result = SecCertificateCreateWithData(kCFAllocatorDefault, certDataRef);
 
         if (!result)
         {
@@ -146,6 +145,13 @@
         sha1 = sha1Data.hexString;
     }
     return sha1;
+}
+
+#pragma mark -
+
+- (OSStatus)installTrustSettingsForUser
+{
+    return SecTrustSettingsSetTrustSettings(self.certificateRef, kSecTrustSettingsDomainUser, NULL);
 }
 
 @end

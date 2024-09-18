@@ -16,6 +16,14 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
-bool installCertificates(const std::string &aDerFolder, const std::string &aLogin,
-    const std::string &aPass, std::string &errorDescription);
+bool areCertificatesInSystemKeychain(const std::string &aDerFolder, std::string &errorDescription);
+bool areCertificatesInSystemKeychainAndAdminTrusted(const std::vector<std::string> &aHashes,
+    std::string &errorDescription);
+
+bool addCertificatesToCommonKeychain(const std::string &aDerFolder, std::string &errorDescription);
+
+bool checkCertificates(const std::vector<std::string>& aHashes, std::string &errorDescription);
+
+bool deleteCertificates(const std::vector<std::string>& aHashes, std::string &errorDescription);
